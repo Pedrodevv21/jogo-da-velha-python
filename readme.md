@@ -100,9 +100,3 @@ Este projeto faz parte de um processo de aprendizado em programação, com foco 
 * construção de pequenos projetos
 * evolução incremental do código
 * aprendizado de Git e versionamento
-
----
-
-## 👨‍💻 Autor
-
-Pedro Alves
