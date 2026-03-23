@@ -87,14 +87,18 @@ def PegarJogada():
     
 
 jogar_novamente = True
-
+qtde_partidas = 0 
 while jogar_novamente == True:
     tabuleiro = [[" ", " ", " "],[" ", " ", " "],[" ", " ", " "] ]
     jogadas = 0
     rodada = "X"
     parar = False
 
+    qtde_partidas += 1
+    print("Partida {}".format(qtde_partidas))
+
     while parar == False:
+    
         if jogadas == 9:
             interface()
             print ("Empate!")
@@ -115,19 +119,25 @@ while jogar_novamente == True:
         if rodada == "X":
             tabuleiro[linha][coluna] = "X"
             ValidarVitoria(rodada)
+            if parar == True:
+                break   
             jogadas += 1
             rodada = "O"
 
         elif rodada == "O":
             tabuleiro[linha][coluna] = "O"
             ValidarVitoria(rodada)
+            if parar == True:
+                break              
             jogadas += 1
             rodada =  "X"
 
+
+  
+    
     if jogar_novamente == True:
         novamente_valido = False
 
-    novamente_valido = False
     while novamente_valido == False:
         try:
             novamente = int (input("Voçe deseja jogar novamente ?  1 pra SIM, 2 pra NÃO: "))
