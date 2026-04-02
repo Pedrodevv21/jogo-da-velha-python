@@ -8,47 +8,24 @@ def interface():
 
 tabuleiro = [[" ", " ", " "],[" ", " ", " "],[" ", " ", " "] ]
 
+
 def ValidarVitoria(rodada):
-    global parar
-    if(tabuleiro[0][0] == rodada and tabuleiro[0][1] == rodada and tabuleiro [0][2] == rodada):
-        interface()
-        print("O jogador {} venceu!".format(rodada))
-        parar = True
-
-    if(tabuleiro[1][0] == rodada and tabuleiro[1][1] == rodada and tabuleiro [1][2] == rodada):
-        interface()
-        print("O jogador {} venceu!".format(rodada))
-        parar = True
-        
-    if(tabuleiro[2][0] == rodada and tabuleiro[2][1] == rodada and tabuleiro [2][2] == rodada):
-        interface()
-        print("O jogador {} venceu!".format(rodada))
-        parar = True
-
-    if(tabuleiro[0][0] == rodada and tabuleiro[1][0] == rodada and tabuleiro [2][0] == rodada):
-        interface()
-        print("O jogador {} venceu!".format(rodada))
-        parar = True
-        
-    if(tabuleiro[0][1] == rodada and tabuleiro[1][1] == rodada and tabuleiro [2][1] == rodada):
-        interface()
-        print("O jogador {} venceu!".format(rodada))
-        parar = True
-
-    if(tabuleiro[0][2] == rodada and tabuleiro[1][2] == rodada and tabuleiro [2][2] == rodada):
-        interface()
-        print("O jogador {} venceu!".format(rodada))
-        parar = True
-
-    if(tabuleiro[0][0] == rodada and tabuleiro[1][1] == rodada and tabuleiro [2][2] == rodada):
-        interface()
-        print("O jogador {} venceu!".format(rodada))
-        parar = True
-
-    if(tabuleiro[2][0] == rodada and tabuleiro[1][1] == rodada and tabuleiro [0][2] == rodada):
-        interface()
-        print("O jogador {} venceu!".format(rodada))
-        parar = True
+    lista =[
+[tabuleiro[0][0], tabuleiro[0][1], tabuleiro[0][2]],
+[tabuleiro[1][0], tabuleiro[1][1], tabuleiro[1][2]],
+[tabuleiro[2][0], tabuleiro[2][1], tabuleiro[2][2]],
+[tabuleiro[0][0], tabuleiro[1][0], tabuleiro[2][0]],
+[tabuleiro[0][1], tabuleiro[1][1], tabuleiro[2][1]],
+[tabuleiro[0][2], tabuleiro[1][2], tabuleiro[2][2]],
+[tabuleiro[0][0], tabuleiro[1][1], tabuleiro[2][2]],
+[tabuleiro[2][0], tabuleiro[1][1], tabuleiro[0][2]]
+]
+    for i in lista:
+        if i[0] == rodada and i[1] == rodada and i[2] == rodada:
+            interface()
+            print("O jogador {} venceu!".format(rodada))
+            return True
+    return False
 
 def PegarJogada():
     jogada_valida = False
@@ -85,7 +62,18 @@ def PegarJogada():
 
         except:
             print("voçe digitou um caractere errado, digite um numero valido")
-    return linha, coluna  
+    return linha, coluna
+
+
+def VerificarSaida(linha, coluna):
+    if linha == None:
+        return True
+        
+    if coluna == None:
+        return True
+    return False
+        
+    
 
 def jogada_computador():
     jogada_valida = False
@@ -100,8 +88,6 @@ def jogada_computador():
             jogada_valida = False
 
     return linha, coluna
-            
-
 
 
 jogar_novamente = True
@@ -157,18 +143,16 @@ while jogar_novamente == True:
         if rodada == "X":
             linha, coluna = PegarJogada()  
             
-            if linha == None:
-                novamente_valido = True
-                jogar_novamente = False
-                break
-            if coluna == None:
+            Verificar_S = VerificarSaida(linha,coluna)
+
+            if Verificar_S == True:
                 novamente_valido = True
                 jogar_novamente = False
                 break
 
             tabuleiro[linha][coluna] = "X"
-            ValidarVitoria(rodada)
-            if parar == True:
+            Validar = ValidarVitoria(rodada)
+            if Validar == True:
                 Vitoria_X += 1
                 print ("PLACAR")
                 print ("X = {}".format(Vitoria_X))
@@ -184,18 +168,16 @@ while jogar_novamente == True:
             elif jogar == 2:
                 linha, coluna = PegarJogada()
 
-            if linha == None:
-                novamente_valido = True
-                jogar_novamente = False
-                break
-            if coluna == None:
-                novamente_valido = True
-                jogar_novamente = False
-                break
+                Verificar_S = VerificarSaida(linha,coluna)
+                if Verificar_S == True:
+                    novamente_valido = True
+                    jogar_novamente = False
+                    break
+            
                 
             tabuleiro[linha][coluna] = "O"
-            ValidarVitoria(rodada)
-            if parar == True:
+            Validar = ValidarVitoria(rodada)
+            if Validar == True:
                 Vitoria_O += 1
                 print ("PLACAR")
                 print ("X = {}".format(Vitoria_X))
@@ -220,3 +202,4 @@ while jogar_novamente == True:
                 print ("Programa encerrado")
         except:
             print("voçe digitou um caractere errado, digite um numero valido")
+

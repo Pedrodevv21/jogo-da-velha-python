@@ -78,13 +78,15 @@ O projeto será evoluído em etapas para praticar novas habilidades de programa�
 ### Versão 5 --- 
 
 * refatoração do código
-* redução de repetição de lógica
 
 ### Versão 6
 
 * criação de interface gráfica com Tkinter
 
 ---
+
+### Versão 7
+Banco de dados (PostgreSQL) pra persistir placar e histórico
 
 ## 🔧 Tecnologias utilizadas
 
