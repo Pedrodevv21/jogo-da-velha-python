@@ -75,13 +75,11 @@ O projeto será evoluído em etapas para praticar novas habilidades de programa�
 * placar de vitorias
 * modo contra computador (jogada aleatória)
 
-### Versão 5 --- 
+### Versão 5 --- FEITO
 
-* refatoração do código
-
+* refatoração do código/separando em arquivos
 ---
-
-### Versão 7
+### Versão 6
 Banco de dados (PostgreSQL) pra persistir placar e histórico
 
 ## 🔧 Tecnologias utilizadas
