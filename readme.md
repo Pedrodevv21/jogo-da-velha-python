@@ -79,10 +79,6 @@ O projeto será evoluído em etapas para praticar novas habilidades de programa�
 
 * refatoração do código
 
-### Versão 6
-
-* criação de interface gráfica com Tkinter
-
 ---
 
 ### Versão 7

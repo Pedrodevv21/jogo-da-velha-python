@@ -28,8 +28,7 @@ def ValidarVitoria(rodada):
     return False
 
 def PegarJogada():
-    jogada_valida = False
-    while jogada_valida == False:
+    while True == False:
         try:
 
             linha = (input("Digite a linha ou S para sair:"))
@@ -49,7 +48,6 @@ def PegarJogada():
 
 
             if linha >= 0 and linha <= 2 and coluna >= 0 and coluna <= 2 :
-                jogada_valida = True
 
                 if tabuleiro[linha][coluna] == " ":
                     jogada_valida = True
@@ -72,22 +70,50 @@ def VerificarSaida(linha, coluna):
     if coluna == None:
         return True
     return False
-        
+
+def Exibirplacar(Vitoria_X, Vitoria_O):
+    print ("PLACAR")
+    print ("X = {}".format(Vitoria_X))
+    print ("O = {}".format(Vitoria_O))
+
     
 
 def jogada_computador():
-    jogada_valida = False
-    while jogada_valida == False:
+    while True:
         linha = random.randint(0, 2)
         coluna = random.randint(0,2)
         
         if tabuleiro[linha][coluna] == " ":
-            jogada_valida = True
+            return linha,coluna
 
-        else:
-            jogada_valida = False
 
-    return linha, coluna
+def Modos():
+    while True:
+        try:
+            jogar =  int (input ("Voçe deseja jogar com o computador ou com outro jogador ? 1 para jogar com computador, 2 para jogador: "))
+            if jogar == 2:
+                print ("modo com jogador")
+                break
+            
+            elif jogar == 1:
+                print ("Modo computador ")
+                break
+   
+        except:
+            print("voçe digitou um caractere errado, digite um numero valido")
+    return jogar
+
+def jogar_de_novo():
+    while True:
+        try:
+            novamente = int (input("Voçe deseja jogar novamente ?  1 pra SIM, 2 pra NÃO: "))
+            if novamente == 1:
+                return True
+            elif novamente == 2:
+                print ("Programa encerrado")
+                return False
+        except:
+            print("voçe digitou um caractere errado, digite um numero valido")
 
 
 jogar_novamente = True
@@ -98,43 +124,18 @@ while jogar_novamente == True:
     tabuleiro = [[" ", " ", " "],[" ", " ", " "],[" ", " ", " "] ]
     jogadas = 0
     rodada = "X"
-    parar = False
 
     qtde_partidas += 1
     print("Partida {}".format(qtde_partidas))
 
+    jogar = Modos()
 
-    modo_jogo = True 
-
-    while modo_jogo == True:
-        try:
-            jogar =  int (input ("Voçe deseja jogar com o computador ou com outro jogador ? 1 para jogar com computador, 2 para jogador: "))
-
-            if jogar == 2:
-                print ("modo com jogador")
-                jogar_novamente = True
-                modo_jogo = False
-            
-            elif jogar == 1:
-                print ("Modo computador ")
-                jogar_novamente = True
-                modo_jogo = False
-                
-        
- 
-        except:
-            print("voçe digitou um caractere errado, digite um numero valido")
-
-
-    while parar == False:
+    while True:
     
         if jogadas == 9:
             interface()
             print ("Empate!")
-            print ("PLACAR")
-            print ("X = {}".format(Vitoria_X))
-            print ("O = {}".format(Vitoria_O))
-            parar = True
+            Exibirplacar(Vitoria_X, Vitoria_O)
             break
         interface()
         print ("SUA VEZ {}".format(rodada))
@@ -146,7 +147,6 @@ while jogar_novamente == True:
             Verificar_S = VerificarSaida(linha,coluna)
 
             if Verificar_S == True:
-                novamente_valido = True
                 jogar_novamente = False
                 break
 
@@ -154,9 +154,7 @@ while jogar_novamente == True:
             Validar = ValidarVitoria(rodada)
             if Validar == True:
                 Vitoria_X += 1
-                print ("PLACAR")
-                print ("X = {}".format(Vitoria_X))
-                print ("O = {}".format(Vitoria_O))    
+                Exibirplacar(Vitoria_X, Vitoria_O)
                 break   
             jogadas += 1
             rodada = "O"
@@ -170,7 +168,6 @@ while jogar_novamente == True:
 
                 Verificar_S = VerificarSaida(linha,coluna)
                 if Verificar_S == True:
-                    novamente_valido = True
                     jogar_novamente = False
                     break
             
@@ -179,27 +176,13 @@ while jogar_novamente == True:
             Validar = ValidarVitoria(rodada)
             if Validar == True:
                 Vitoria_O += 1
-                print ("PLACAR")
-                print ("X = {}".format(Vitoria_X))
-                print ("O = {}".format(Vitoria_O))
+                Exibirplacar(Vitoria_X, Vitoria_O)
                 break              
             jogadas += 1
             rodada =  "X"
-  
-    
-    if jogar_novamente == True:
-        novamente_valido = False
 
-    while novamente_valido == False:
-        try:
-            novamente = int (input("Voçe deseja jogar novamente ?  1 pra SIM, 2 pra NÃO: "))
-            if novamente == 1:
-                jogar_novamente = True
-                novamente_valido = True
-            elif novamente == 2:
-                jogar_novamente = False
-                novamente_valido = True
-                print ("Programa encerrado")
-        except:
-            print("voçe digitou um caractere errado, digite um numero valido")
+    if jogar_novamente == True:
+        jogar_novamente = jogar_de_novo()
+
+  
 
