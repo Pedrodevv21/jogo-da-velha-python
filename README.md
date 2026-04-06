@@ -6,7 +6,7 @@ O projeto foi criado com o objetivo de praticar lógica de programação, organi
 
 ---
 
-## 🎮 Como funciona
+## Como funciona
 
 * Tabuleiro **3x3**
 * Jogadores alternam entre **X** e **O**
@@ -27,7 +27,7 @@ O projeto foi criado com o objetivo de praticar lógica de programação, organi
 
 ---
 
-## ▶️ Como executar o projeto (modo rápido)
+## Como executar o projeto (modo rápido)
 
 Você pode rodar o jogo normalmente sem configurar banco de dados.
 
@@ -46,11 +46,11 @@ cd jogo-da-velha
 python main.py
 ```
 
-> O jogo será executado diretamente no terminal.
+> O jogo roda diretamente no terminal e não requer instalação adicional.
 
 ---
 
-## 💾 Sobre o banco de dados
+## Sobre o banco de dados
 
 O projeto também possui integração com **PostgreSQL**, onde é possível:
 
@@ -64,7 +64,7 @@ Essa funcionalidade foi implementada para praticar integração com banco de dad
 
 ---
 
-## 🧠 Conceitos praticados
+## Conceitos praticados
 
 * Estruturas condicionais (`if`)
 * Laços de repetição (`while`)
@@ -76,11 +76,11 @@ Essa funcionalidade foi implementada para praticar integração com banco de dad
 
 ---
 
-## 📂 Estrutura do projeto
+## Estrutura do projeto
 
 ```
 main.py          # fluxo principal do jogo
-db.py            # conexão e operações com o banco de dados
+Banco_jogo_velha # conexão e operações com o banco de dados
 
 jogo/
   tabuleiro.py   # regras e exibição do tabuleiro
@@ -90,7 +90,7 @@ jogo/
 
 ---
 
-## 🚀 Evolução do projeto
+## Evolução do projeto
 
 ### Versão 1
 
@@ -133,7 +133,7 @@ jogo/
 
 ---
 
-## 📚 Objetivo do projeto
+## Objetivo do projeto
 
 Este projeto faz parte do meu processo de aprendizado em programação, com foco em:
 
