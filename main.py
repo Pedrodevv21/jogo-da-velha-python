@@ -85,11 +85,10 @@ while jogar_novamente == True:
             jogadas += 1
             rodada =  "X"
 
-    
+    # Salva resultado da partida no banco e exibe histórico
     if resultado is not None:
         salvar_partida(resultado, modo, jogadas)
-
-        # Salva resultado da partida no banco e exibe histórico
+        
         listar_partidas()
 
     if jogar_novamente == True:
