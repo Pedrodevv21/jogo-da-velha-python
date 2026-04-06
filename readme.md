@@ -1,100 +1,145 @@
 # Jogo da Velha em Python
 
-Projeto simples de **Jogo da Velha (Tic-Tac-Toe)** desenvolvido em **Python**, executado diretamente no terminal.
-O objetivo do projeto é praticar lógica de programação, manipulação de listas, controle de fluxo e evolução incremental de software.
+Projeto de **Jogo da Velha (Tic-Tac-Toe)** desenvolvido em **Python**, executado no terminal.
 
----
-
-## 📌 Versão atual
-
-**Versão 1 – Jogo funcional** **Feito**
-
-O jogo permite que dois jogadores joguem alternadamente no terminal até que um vença ou aconteça empate.
+O projeto foi criado com o objetivo de praticar lógica de programação, organização de código e evolução incremental, incluindo posteriormente integração com banco de dados.
 
 ---
 
 ## 🎮 Como funciona
 
-* O tabuleiro possui **3 linhas e 3 colunas**
-* Os jogadores se alternam entre **X** e **O**
-* Cada jogador escolhe **linha e coluna** para marcar sua jogada
-* O jogo verifica automaticamente:
+* Tabuleiro **3x3**
+* Jogadores alternam entre **X** e **O**
+* Escolha de jogadas via terminal (linha e coluna)
+* Validações implementadas:
 
-  * vitória por **linha**
-  * vitória por **coluna**
-  * vitória por **diagonal**
-* Se todas as posições forem preenchidas sem vencedor, ocorre **empate**
+  * posição ocupada
+  * entrada inválida
+  * opção de sair do jogo
+* Verificação automática de:
+
+  * vitória (linhas, colunas e diagonais)
+  * empate (velha)
+* Modos disponíveis:
+
+  * jogador vs jogador
+  * jogador vs computador
+
+---
+
+## ▶️ Como executar o projeto (modo rápido)
+
+Você pode rodar o jogo normalmente sem configurar banco de dados.
+
+### 1. Clonar o repositório
+
+```bash
+git clone
+cd jogo-da-velha
+```
+
+---
+
+### 2. Executar o projeto
+
+```bash
+python main.py
+```
+
+> O jogo será executado diretamente no terminal.
+
+---
+
+## 💾 Sobre o banco de dados
+
+O projeto também possui integração com **PostgreSQL**, onde é possível:
+
+* salvar o resultado das partidas
+* registrar histórico de jogos
+* armazenar data e horário
+
+Essa funcionalidade foi implementada para praticar integração com banco de dados utilizando **psycopg2**.
+
+> A configuração do banco é opcional e não é necessária para testar o jogo.
 
 ---
 
 ## 🧠 Conceitos praticados
 
-Este projeto foi criado para praticar conceitos fundamentais de programação:
-
-* Funções
 * Estruturas condicionais (`if`)
 * Laços de repetição (`while`)
-* Listas e listas bidimensionais (matrizes)
+* Manipulação de listas (matrizes)
 * Entrada de dados com `input`
-* Organização básica de código
-
-A linguagem utilizada foi **Python**.
+* Tratamento de erros (`try/except`)
+* Organização de código em múltiplos arquivos
+* Integração com banco de dados (SQL)
 
 ---
 
 ## 📂 Estrutura do projeto
 
-Atualmente o projeto possui um único arquivo principal:
-
 ```
-jogo_da_velha.py
-```
+main.py          # fluxo principal do jogo
+db.py            # conexão e operações com o banco de dados
 
-Este arquivo contém toda a lógica do jogo.
+jogo/
+  tabuleiro.py   # regras e exibição do tabuleiro
+  jogador.py     # entrada do jogador e lógica da CPU
+  jogo.py        # controle de modo e fluxo auxiliar
+```
 
 ---
 
-## 🚀 Evolução planejada do projeto
+## 🚀 Evolução do projeto
 
-O projeto será evoluído em etapas para praticar novas habilidades de programação.
+### Versão 1
 
-### Versão 2 --- FEITO
+* lógica básica do jogo
 
-* impedir jogada em posição ocupada
-* validar entrada do usuário
-* melhorar mensagens do jogo
+### Versão 2
 
-### Versão 3 --- FEITO
+* validação de jogadas
+* melhoria de mensagens
 
-* sair no meio de uma partida
+### Versão 3
+
+* opção de sair no meio da partida
 * contador de partidas
-* opção de jogar novamente
+* jogar novamente
 
-### Versão 4 --- FEITO
+### Versão 4
 
-* placar de vitorias
-* modo contra computador (jogada aleatória)
+* placar de vitórias
+* modo contra computador
 
-### Versão 5 --- FEITO
+### Versão 5
 
-* refatoração do código/separando em arquivos
----
+* refatoração e separação em arquivos
+
 ### Versão 6
-Banco de dados (PostgreSQL) pra persistir placar e histórico
+
+* integração com banco de dados (PostgreSQL)
+* persistência de histórico
+
+---
 
 ## 🔧 Tecnologias utilizadas
 
 * Python
-* Terminal / CLI
-* Git para controle de versão
+* Terminal (CLI)
+* Git
+* PostgreSQL (opcional)
+* psycopg2 (opcional)
 
 ---
 
 ## 📚 Objetivo do projeto
 
-Este projeto faz parte de um processo de aprendizado em programação, com foco em:
+Este projeto faz parte do meu processo de aprendizado em programação, com foco em:
 
 * prática constante
-* construção de pequenos projetos
-* evolução incremental do código
-* aprendizado de Git e versionamento
+* construção de projetos reais
+* evolução incremental
+* aplicação de conceitos de backend
+
+

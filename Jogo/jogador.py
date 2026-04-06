@@ -1,4 +1,4 @@
-from tabuleiro import tabuleiro
+from Jogo.tabuleiro import tabuleiro
 import random
 
 
@@ -45,6 +45,7 @@ def VerificarSaida(linha, coluna):
         return True
     return False
 
+# Gera jogada aleatória para o computador
 def jogada_computador():
     while True:
         linha = random.randint(0, 2)

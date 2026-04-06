@@ -1,3 +1,4 @@
+# Define o modo de jogo (CPU ou jogador)
 def Modos():
     while True:
         try:
